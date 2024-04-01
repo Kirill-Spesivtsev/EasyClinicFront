@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+//@import "../node_modules/bootstrap/scss/bootstrap";
+
+@import "../node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+
+@import "../node_modules/bootswatch/dist/pulse/variables";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootswatch/dist/pulse/bootswatch";
+
+body{
+    font-family: 'Nunito', sans-serif;
+    //font-family: 'Varela Round', sans-serif;
+    //font-family: 'Roboto Mono', monospace;
+}
+
+.pagination>li>a, .pagination>li>span { 
+    border-radius: 19px !important;
+    margin: 0px 4px !important;
+    text-align: center !important;
+    min-width: 38px;
+    height: 38px;
+    font-size: 20px;
+    line-height: 130%;
+    border-width: 2px;
+    border-color: rgb(200, 200, 200) !important;
+
+    &:hover{
+        border-color: rgb(200, 200, 200);
+    }
+}
