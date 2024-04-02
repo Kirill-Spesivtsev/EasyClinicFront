@@ -1,0 +1,22 @@
+.account-avatar-settings{
+    height: 50px;
+}
+
+.auth-form-panel{
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.flex-form-centered-container{
+    display: flex;
+    height: calc(100vh - 70px);
+    justify-content: center;
+    align-items: center;
+}
+
+.account-settings-block{
+    min-height: 300px !important;
+}
+
+.account-manage-button{
+    width: 130px;
+}

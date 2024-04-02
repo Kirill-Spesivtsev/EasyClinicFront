@@ -1,0 +1,31 @@
+<img src="/assets/images/background/formbg.jpg" class="z-n1 position-fixed object-fit-cover h-100 w-100">
+
+<div class="container flex-form-centered-container">
+    <div class="col-xxl-4 col-xl-5 col-lg-6 col-md-7 col-sm-9 col-9 my-3 account-settings-block
+        bg-white border border-primary border-3 rounded rounded-3 auth-form-panel">
+
+        <div class="p-5">
+            <ng-container *ngIf="(accountService.currentUser$ | async) as user">
+                
+                
+                <div class="flex-row">
+                    <img src="/assets/images/account/user_default.png" alt="logo" class="account-avatar-settings">
+                    <span class="ms-3 fs-3">{{user.username}}</span>
+                    <a (click)="logout()" class="btn btn-primary btn-lg ms-4 me-2">Logout</a>
+                </div>
+
+    
+                <div class="row-cols-2">
+                    <button (click)="sendAccountConfirmationEmail()" class="btn btn-info btn-lg account-manage-button mt-5">
+                        Confirm Account
+                    </button>
+                    <button (click)="sendPasswordChangeEmail()" class="btn btn-warning btn-lg account-manage-button mt-5 ms-4">
+                        Change Password
+                    </button>
+                </div>
+                
+            </ng-container>
+        </div>
+
+    </div>
+</div>
