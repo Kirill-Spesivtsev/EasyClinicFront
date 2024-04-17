@@ -1,0 +1,39 @@
+<nav class="d-flex flex-row align-items-center justify-content-md-between ps-4 pe-md-4 pe-1 mb-0 
+        border-bottom bg-white fixed-top shadow-sm navbar-height navbar py-1">
+    <a routerLink="/home">
+        <img src="/assets/images/logo/logo.png" alt="logo" class="logo-pic brand-logo navbar-brand">
+    </a>
+    <div class="d-inline-flex fs-4 align-items-center">
+        <!--
+        <a class="nav-link nav-link-panel px-md-3 px-sm-1 px-1 py-2" 
+            routerLink="/products" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            Products
+        </a>
+        <a class="nav-link nav-link-panel px-md-3 px-sm-1 px-1 py-2" 
+            routerLink="/users" routerLinkActive="active">
+            Users
+        </a>-->
+
+        <ng-container *ngIf="(accountService.currentUser$ | async) as user">
+            <a class="nav-link nav-link-panel px-md-3 px-sm-1 px-1 py-2" 
+                routerLink="/account" routerLinkActive="active">Account</a>
+        </ng-container>
+
+    </div>
+
+    <div class="d-flex align-items-center">
+
+        <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+            <a routerLink="/account/login" class="btn btn-primary me-2">Login</a>
+            <a routerLink="/account/register" class="btn btn-primary me-md-3 me-0">Sign up</a>    
+        </ng-container>
+
+        <ng-container *ngIf="(accountService.currentUser$ | async) as user">
+            <img src="/assets/images/account/user_default.png" alt="logo" class="account-avatar-nav">
+            <span class="ms-2 fs-5">{{user.username}}</span>
+            <a (click)="logout()" class="btn btn-primary ms-4 me-2">Logout</a>  
+        </ng-container>
+
+    </div>
+
+</nav>
