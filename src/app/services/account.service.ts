@@ -77,7 +77,7 @@ export class AccountService {
     let token = localStorage.getItem('jwtToken');
     headers = headers.set('Authorization', `Bearer ${token}`);
 
-    return this.http.post(this.baseUrl + "account/confirm-account", {body: {}}, {headers: headers});
+    return this.http.post(this.baseUrl + "account/resend-account-confirmation-link", {body: {}}, {headers: headers});
   }
 
   sendPasswordChangeEmail(){
@@ -85,15 +85,15 @@ export class AccountService {
     let token = localStorage.getItem('jwtToken');
     headers = headers.set('Authorization', `Bearer ${token}`);
 
-    return this.http.post(this.baseUrl + "account/forgot-password", {}, {headers: headers});
+    return this.http.post(this.baseUrl + "account/send-password-reset-link", {}, {headers: headers});
   }
 
-  verifyAccount(token: string){
-    return this.http.post(this.baseUrl + "account/verify-email" + "?token=" + token, {});
+  verifyAccount(userId: string, token: string){
+    return this.http.get(this.baseUrl + "account/verify-email" + "?userId=" + userId + "&token=" + token, {});
   }
 
-  changePassword(token: string, pass: string){
-    return this.http.post(this.baseUrl + "account/change-password" + "?token=" + token + "&newPassword=" + pass, {});
+  changePassword(userId: string, token: string, newPassword: string){
+    return this.http.post(this.baseUrl + "account/change-password", {userId: userId, token: token, newPassword: newPassword});
   }
 
 }
